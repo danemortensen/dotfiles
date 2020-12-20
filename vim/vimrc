@@ -30,8 +30,10 @@ let g:lightline = {
 set shiftwidth=4        " number of visual spaces per tab
 set softtabstop=4       " number of spaces in tab
 set expandtab           " tabs are spaces
+
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
+
 let g:indent_guides_enable_on_vim_startup=1  " indent guides upon vim startup
 let g:indent_guides_start_level=1            " indent guides start at very left
 let g:indent_guides_guide_size=1             " width of indent guides
@@ -40,13 +42,13 @@ let g:indent_guides_guide_size=1             " width of indent guides
 " ==============================================================================
 " UI CONFIG
 " ==============================================================================
-set number              " show line numbers
-set showcmd             " show command in bottom bar
-filetype plugin indent on      " loads indent files from ~/.vim/indent/<filetype>.vim
-set wildmenu            " visual autocomplete for command menu
-set lazyredraw          " redraw only when we need to
-set showmatch           " highlight matching [{()}]
-set colorcolumn=80      " ruler at column 80
+set number                 " show line numbers
+set showcmd                " show command in bottom bar
+filetype plugin indent on  " load indent files from ~/.vim/indent/<filetype>.vim
+set wildmenu               " visual autocomplete for command menu
+set lazyredraw             " redraw only when we need to
+set showmatch              " highlight matching [{()}]
+set colorcolumn=80         " ruler at column 80
 
 
 " ==============================================================================
@@ -67,3 +69,14 @@ let mapleader=","
 inoremap jj <esc>
 " open NERDtree
 map <C-n> :NERDTreeToggle<CR>
+
+
+" ==============================================================================
+" ALIASES
+" ==============================================================================
+" +-----------------------------------+
+" | ALIAS                  | ORIGINAL |
+" +------------------------+----------+
+" | tn (COMMAND mode only) : tabnew   |
+" +------------------------+----------+
+cabbrev tn tabnew
