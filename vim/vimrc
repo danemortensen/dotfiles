@@ -27,9 +27,18 @@ let g:lightline = {
 " ==============================================================================
 " SPACES AND TABS
 " ==============================================================================
-set shiftwidth=4        " number of visual spaces per tab
-set softtabstop=4       " number of spaces in tab
-set expandtab           " tabs are spaces
+" +----------+----------+
+" | FILETYPE | INDENT   |
+" +----------+----------+
+" | .c       : 4 SPACES |
+" | .html    : 2 SPACES |
+" | .go      : 4 SPACES |
+" | DEFAULT  : 4 SPACES |
+" +----------+----------+
+set shiftwidth=4           " number of visual spaces per tab
+set softtabstop=4          " number of spaces in tab
+set expandtab              " tabs are spaces
+filetype plugin indent on  " load indent files from ~/.vim/indent/<filetype>.vim
 
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
@@ -44,7 +53,6 @@ let g:indent_guides_guide_size=1             " width of indent guides
 " ==============================================================================
 set number                 " show line numbers
 set showcmd                " show command in bottom bar
-filetype plugin indent on  " load indent files from ~/.vim/indent/<filetype>.vim
 set wildmenu               " visual autocomplete for command menu
 set lazyredraw             " redraw only when we need to
 set showmatch              " highlight matching [{()}]
