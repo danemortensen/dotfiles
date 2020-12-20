@@ -17,7 +17,7 @@ call plug#end()
 " COLORS
 " ==============================================================================
 set background=dark     " dark background
-colorschem gruvbox      " gruvbox colorscheme
+colorscheme gruvbox      " gruvbox colorscheme
 syntax enable           " syntax highlighting
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
@@ -40,8 +40,8 @@ set softtabstop=4          " number of spaces in tab
 set expandtab              " tabs are spaces
 filetype plugin indent on  " load indent files from ~/.vim/indent/<filetype>.vim
 
-let delimitMate_expand_cr = 1
-let delimitMate_expand_space = 1
+let delimitMate_expand_cr=1
+let delimitMate_expand_space=1
 
 let g:indent_guides_enable_on_vim_startup=1  " indent guides upon vim startup
 let g:indent_guides_start_level=1            " indent guides start at very left
@@ -82,9 +82,9 @@ map <C-n> :NERDTreeToggle<CR>
 " ==============================================================================
 " ALIASES
 " ==============================================================================
-" +-----------------------------------+
-" | ALIAS                  | ORIGINAL |
-" +------------------------+----------+
-" | tn (COMMAND mode only) : tabnew   |
-" +------------------------+----------+
+" +------------------+-------------------+
+" | ALIAS | ORIGINAL | COMMENT           |
+" +-------+----------+-------------------+
+" | tn    : tabnew   | COMMAND mode only |
+" +-------+----------+-------------------+
 cabbrev tn tabnew
