@@ -2,7 +2,7 @@
 " PLUGINS
 " ==============================================================================
 call plug#begin()
-Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim'
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
@@ -12,6 +12,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 call plug#end()
+
 
 " ==============================================================================
 " COLORS
@@ -39,9 +40,6 @@ set shiftwidth=4           " number of visual spaces per tab
 set softtabstop=4          " number of spaces in tab
 set expandtab              " tabs are spaces
 filetype plugin indent on  " load indent files from ~/.vim/indent/<filetype>.vim
-
-let delimitMate_expand_cr=1
-let delimitMate_expand_space=1
 
 let g:indent_guides_enable_on_vim_startup=1  " indent guides upon vim startup
 let g:indent_guides_start_level=1            " indent guides start at very left
