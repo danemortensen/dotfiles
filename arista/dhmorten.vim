@@ -18,6 +18,9 @@ call plug#end()
 " ==============================================================================
 set background=dark     " dark background
 colorschem gruvbox      " gruvbox colorscheme
+if exists("&termguicolors")
+  set termguicolors
+endif
 syntax enable           " syntax highlighting
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
