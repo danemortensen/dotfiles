@@ -2,6 +2,8 @@ alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 alias d='dirs -v' # View directories in stack
 
+alias e=$EDITOR
+
 # GIT
 alias gs='git status'
 alias ga='git add'
@@ -25,4 +27,3 @@ alias rm='rm -i' # Prompt by default before removing
 
 alias sudo='sudo ' # Allow sudo to work with aliases
 
-alias v='~/nvim.appimage -p' # Run neovim 0.5 appimage
