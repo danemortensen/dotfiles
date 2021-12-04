@@ -7,6 +7,10 @@ source $ZDOTDIR/settings.zsh
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -f "$SYNTAX_HIGHLIGHTING" ]; then
+  . $SYNTAX_HIGHLIGHTING
+else
+  echo "Syntax highlighting ($SYNTAX_HIGHLIGHTING) not found."
+fi
 
 eval "$(starship init zsh)"

@@ -21,6 +21,7 @@ export PATH=$PATH:$CARGO_HOME/bin
 # ZSH
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export HISTFILE="$ZDOTDIR/.zsh_history"
+export SYNTAX_HIGHLIGHTING="$ZDOTDIR/plugins/syntax-highlighting.zsh"
 export HISTSIZE=10000
 export SAVEHIST=10000
 
