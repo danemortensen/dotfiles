@@ -7,10 +7,13 @@ source $ZDOTDIR/settings.zsh
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-if [ -f "$SYNTAX_HIGHLIGHTING" ]; then
-  . $SYNTAX_HIGHLIGHTING
-else
-  echo "Syntax highlighting ($SYNTAX_HIGHLIGHTING) not found."
-fi
+_source_if_present() {
+  if [ -f "$1" ]; then
+    . $1
+  else
+    echo "$2 not found ($1)."
+  fi
+}
 
-eval "$(starship init zsh)"
+_source_if_present $PROMPT              "Prompt"
+_source_if_present $SYNTAX_HIGHLIGHTING "Syntax highlighting"
