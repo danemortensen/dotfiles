@@ -23,6 +23,10 @@ alias grs='git remote show'
 alias glo='git log --pretty="oneline"'
 alias glol='git log --graph --oneline --decorate'
 
+alias ls='ls --color'
+alias la='ls -a'
+alias ll='ls -la'
+
 alias rm='rm -i' # Prompt by default before removing
 
 alias sudo='sudo ' # Allow sudo to work with aliases
