@@ -15,5 +15,5 @@ _source_if_present() {
   fi
 }
 
-_source_if_present $PROMPT              "Prompt"
-_source_if_present $SYNTAX_HIGHLIGHTING "Syntax highlighting"
+_source_if_present $ZSH_PROMPT              "Prompt"
+_source_if_present $ZSH_SYNTAX_HIGHLIGHTING "Syntax highlighting"
