@@ -1,5 +1,5 @@
-# Run neofetch upon terminal launch
-neofetch
+# Run neofetch, suppressing errors in case of 'command not found'
+neofetch 2>/dev/null
 
 source $ZDOTDIR/aliases.zsh
 source $ZDOTDIR/completions.zsh
