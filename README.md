@@ -16,11 +16,10 @@ git clone --bare git@github.com:danemortensen/dotfiles.git $HOME/.dotfiles
 ```
 alias config='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 ```
-- Checkout the content from the bare repository you just cloned to your home directory.
+- Checkout the content from the bare repository you just cloned to your home directory. If you get an error about overwriting working tree files at this point, it's because your home directory already contains files at the same path that this repository would like to add. To get around this, simply move these files to a backup directory somewhere, and checkout again.
 ```
 config checkout
 ```
-- If you get an error about overwriting working tree files at this point, it's because your home directory already contains files at the same path that this repository would like to add. To get around this, simply move these files to a backup directory somewhere, and rerun the previous command.
 - Configure this local repository to not display untracked files as the majority of files in your home directory should not be added to this repo.
 ```
 config config --local status.showUntrackedFiles no
