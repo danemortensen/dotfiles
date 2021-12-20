@@ -2,8 +2,11 @@ local cmd = vim.cmd
 
 cmd 'filetype plugin indent on'
 
--- require('settings')
+modules = {
+  'options',
+  'mappings',
+  'plugins',
+  'lsp',
+}
 
-require('plugins')  -- plugin-related code
-require('mappings') -- leader, key mappings, and aliases
-require('options')
+for _, m in ipairs(modules) do require(m) end
