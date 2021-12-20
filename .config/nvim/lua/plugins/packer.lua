@@ -1,10 +1,10 @@
-local success, packer = pcall(require, 'packer')
+local cmd = vim.cmd
+local fn = vim.fn
+local packer_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
-if not success then
-  local fn = vim.fn
-  local packer_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-  fn.delete(packer_path, 'rf')
-  fn.system({
+-- Automatically install packer
+if fn.empty(fn.glob(packer_path)) > 0 then
+  PACKER_BOOTSTRAP = fn.system({
     'git',
     'clone',
     'https://github.com/wbthomason/packer.nvim',
@@ -12,15 +12,14 @@ if not success then
     '1',
     packer_path,
   })
-
-  success, packer = pcall(require, 'packer')
-  if not success then
-    error('Unable to clone packer from ' .. packer_path)
-  end
+  cmd 'packadd packer.nvim'
+  print 'Installing packer... Please restart neovim.'
 end
 
-local cmd = vim.cmd
-vim.cmd 'packadd packer.nvim'                        -- Required because packer is lazy-loaded
-cmd 'autocmd BufWritePost init.lua PackerCompile' -- Compile upon changes to plugins.lua
+-- Check that packer was installed
+local installed, packer = pcall(require, 'packer')
+if not installed then
+  error 'Unable to install packer at ' .. packer_path
+end 
 
 return packer
