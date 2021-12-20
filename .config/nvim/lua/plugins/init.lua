@@ -1,7 +1,7 @@
-local installed, packer = pcall(require, 'plugins.packer')
-if not installed then return false end
+local packer = require('plugins.packer')
+if not packer then return false end
 
-return require('packer').startup(function()
+return packer.startup(function()
   -- Packer self-management
   use { 'wbthomason/packer.nvim' }
   -- Color schemes
@@ -11,9 +11,15 @@ return require('packer').startup(function()
       vim.cmd 'colorscheme tokyonight'
     end
   }
-  -- LSP
+  -- LSP Plugins
   use { 'neovim/nvim-lspconfig' }
   use { 'kabouzeid/nvim-lspinstall' }
+  -- Completion Plugins
+  use { 'hrsh7th/nvim-cmp' }          -- Completion engine
+  use { 'hrsh7th/cmp-buffer' }        -- Buffer completions
+  use { 'hrsh7th/cmp-path' }          -- Path completions
+  use { 'hrsh7th/cmp-cmdline' }       -- Command line completions
+  use { 'saadparwaiz1/cmp_luasnip' }  -- Snippet completions
 
   use {
     'nvim-treesitter/nvim-treesitter',

@@ -19,7 +19,7 @@ end
 -- Check that packer was installed
 local installed, packer = pcall(require, 'packer')
 if not installed then
-  error 'Unable to install packer at ' .. packer_path
+  print('Unable to install packer at ' .. packer_path)
 end 
 
 return packer
