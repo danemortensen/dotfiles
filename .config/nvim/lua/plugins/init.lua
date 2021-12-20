@@ -1,21 +1,19 @@
-local present, packer = pcall(require, 'plugins.packer')
-if not present then
-  return false
-end
+local installed, packer = pcall(require, 'plugins.packer')
+if not installed then return false end
 
 return require('packer').startup(function()
+  -- Packer self-management
+  use { 'wbthomason/packer.nvim' }
+  -- Color schemes
   use {
-    'neovim/nvim-lspconfig'
+    'folke/tokyonight.nvim',
+    config = function()
+      vim.cmd 'colorscheme tokyonight'
+    end
   }
-
-  use {
-    'kabouzeid/nvim-lspinstall'
-  }
-
-  use {
-    'wbthomason/packer.nvim',
-    event = 'VimEnter',
-  }
+  -- LSP
+  use { 'neovim/nvim-lspconfig' }
+  use { 'kabouzeid/nvim-lspinstall' }
 
   use {
     'nvim-treesitter/nvim-treesitter',
