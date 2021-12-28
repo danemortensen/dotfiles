@@ -20,6 +20,16 @@ end
 local installed, packer = pcall(require, 'packer')
 if not installed then
   print('Unable to install packer at ' .. packer_path)
-end 
+  return
+end
+
+-- Run packer in pop-up windows
+packer.init({
+  display = {
+    open_fn = function()
+      return require('packer.util').float()
+    end
+  },
+})
 
 return packer
