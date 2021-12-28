@@ -13,10 +13,11 @@ function M.setup()
 
   for _, sign in ipairs(signs) do
     vim.fn.sign_define(sign.name,
-                       { texthl = sign.name, text = sign.text, numhl = "" })
+                       { texthl = sign.name, text = sign.text, numhl = '' })
   end
 
   vim.diagnostic.config({
+    float = { style = 'minimal' },
     signs = { active = signs },
     underline = true,
     virtual_text = false,
