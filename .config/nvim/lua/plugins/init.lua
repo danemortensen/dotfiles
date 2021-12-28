@@ -1,27 +1,26 @@
 local packer = require('plugins.packer')
 if not packer then return false end
 
-return packer.startup(function()
-  -- Packer
+return packer.startup(function(use)
+  -- PLUGIN MANAGER --
   use { 'wbthomason/packer.nvim' }  -- Packer self-management
-  -- Color schemes
+  -- COLOR SCHEMES --
   use {
     'folke/tokyonight.nvim',
-    config = function()
-      vim.cmd 'colorscheme tokyonight'
-    end
+    config = function() vim.cmd 'colorscheme tokyonight' end
   }
-  -- LSP Plugins
+  -- LSP PLUGINS --
   use { 'neovim/nvim-lspconfig' }            -- Enable LSP support
   use { 'williamboman/nvim-lsp-installer' }  -- Language server installer
   use { 'tamago324/nlsp-settings.nvim' }     -- Configure language servers
-  -- Completion Plugins
+  -- COMPLETION PLUGINS --
   use { 'hrsh7th/nvim-cmp' }          -- Completion engine
   use { 'hrsh7th/cmp-buffer' }        -- Buffer completions
   use { 'hrsh7th/cmp-path' }          -- Path completions
   use { 'hrsh7th/cmp-cmdline' }       -- Command line completions
   use { 'saadparwaiz1/cmp_luasnip' }  -- Snippet completions
   use { 'hrsh7th/cmp-nvim-lsp' }      -- LSP completions
+  use { 'L3MON4D3/LuaSnip' }          -- Snippet engine
 
   use {
     'nvim-treesitter/nvim-treesitter',

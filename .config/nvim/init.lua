@@ -1,12 +1,11 @@
-local cmd = vim.cmd
+vim.cmd 'filetype plugin indent on'
 
-cmd 'filetype plugin indent on'
-
-modules = {
+local modules = {
   'options',
   'mappings',
   'plugins',
   'lsp',
+  'completions',
 }
 
 for _, m in ipairs(modules) do require(m) end
