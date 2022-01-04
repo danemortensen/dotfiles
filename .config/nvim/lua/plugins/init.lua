@@ -25,7 +25,12 @@ return packer.startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',                  -- Automatically update parsers
-    config = function() require('plugins.configs.treesitter').setup() end
+    config = function() require('plugins.configs.treesitter').setup() end,
+  }
+  -- AUTO-PAIRS --
+  use {
+    'windwp/nvim-autopairs',
+    config = function() require('plugins.configs.autopairs').setup() end,
   }
 
   use {
