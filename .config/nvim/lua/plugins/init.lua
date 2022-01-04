@@ -21,11 +21,11 @@ return packer.startup(function(use)
   use { 'saadparwaiz1/cmp_luasnip' }  -- Snippet completions
   use { 'hrsh7th/cmp-nvim-lsp' }      -- LSP completions
   use { 'L3MON4D3/LuaSnip' }          -- Snippet engine
-
+  -- TREESITTER --
   use {
     'nvim-treesitter/nvim-treesitter',
-    event = 'BufRead',
-    run = ':TSUpdate',
+    run = ':TSUpdate',                  -- Automatically update parsers
+    config = function() require('plugins.configs.treesitter').setup() end
   }
 
   use {
@@ -40,12 +40,6 @@ return packer.startup(function(use)
   use {
     'b3nj5m1n/kommentary'
   }
-
-  -- Color Schemes:
-  use {
-    'folke/tokyonight.nvim'
-  }
-  -- use {'shaunsingh/nord.nvim'}
 
   -- Use for lua keymap/ftplugin until the following merges:
   -- https://github.com/neovim/neovim/pull/13823 merges
