@@ -1,17 +1,6 @@
-# ~/.profile: executed by the command interpreter for login shells.
-# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
-# exists.
-# see /usr/share/doc/bash/examples/startup-files for examples.
-# the files are located in the bash-doc package.
-
-# the default umask is set in /etc/profile; for setting the umask
-# for ssh logins, install and configure the libpam-umask package.
-#umask 022
-
-# XDG
-# export XDG_CONFIG_HOME="$HOME/.config"
-# export XDG_DATA_HOME="$XDG_CONFIG_HOME/local/share"
-# export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
+# This file defines common environment variables to be shared between different
+# shells (e.g. bash and zsh). Note that XDG base directories should already be
+# set when this file is executed.
 
 # EDITOR
 export EDITOR="nvim"

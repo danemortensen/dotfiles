@@ -29,7 +29,6 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-
 # Zsh-specific environment variables.
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export ZSH_PLUGIN_DIR="$ZDOTDIR/plugins"
