@@ -6,6 +6,8 @@
 export EDITOR="nvim"
 export VISUAL="nvim"
 
+export LESSHISTFILE="$XDG_STATE_HOME/less/history"
+
 # GO
 export GOPATH="$HOME/code/go"
 export GOBIN="$HOME/code/go/bin"
