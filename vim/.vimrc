@@ -34,3 +34,10 @@ set incsearch
 set showmatch
 set smartcase
 
+" Store viminfo in XDG-compliant location
+if exists('$XDG_STATE_HOME')
+  set viminfofile=$XDG_STATE_HOME/vim/viminfo
+else
+  set viminfofile=$HOME/.viminfo
+endif
+
