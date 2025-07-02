@@ -25,9 +25,6 @@
 if command -v vim >/dev/null 2>&1; then
   export VISUAL=vim
   export EDITOR=vim
-elif command -v nano >/dev/null 2>&1; then
-  export VISUAL=nano
-  export EDITOR=nano
 else
   export VISUAL=vi
   export EDITOR=vi
