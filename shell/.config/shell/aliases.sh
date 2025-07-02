@@ -13,7 +13,10 @@ alias rm='rm -ri'
 
 alias mkdir='mkdir -pv'
 
+# ls
+alias la='ls -A'
 alias ll='ls -lAhF'
+
 alias tree='tree -AC'
 alias v='nvim'
 
