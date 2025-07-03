@@ -35,11 +35,15 @@ export ZSH_PLUGIN_DIR="$ZDOTDIR/plugins"
 export ZSH_PROMPT="$ZSH_PLUGIN_DIR/prompt.zsh"
 export ZSH_SYNTAX_HIGHLIGHTING="$ZSH_PLUGIN_DIR/syntax-highlighting.zsh"
 
+# ------------------------------------------------------------------------------
+#
 # History-related environment variables.
-export HISTFILE="$XDG_STATE_HOME/zsh"   # Set history file location.
-mkdir -p "${HISTFILE:h}"                # Create history directory.
-export HISTSIZE=10000                   # Save 10K commands during session.
-export SAVEHIST=10000                   # Save 10K commands across sessions.
+#
+# ------------------------------------------------------------------------------
+export HISTFILE="$XDG_STATE_HOME/zsh/history"   # Set history file location.
+mkdir -p "${HISTFILE:h}"                        # Create history directory.
+export HISTSIZE=10000                         # Save 10K lines during session.
+export SAVEHIST=10000                         # Save 10K lines across sessions.
 
 # Set common environment variables.
 [[ -f $XDG_CONFIG_HOME/shell/env.sh ]] && . $XDG_CONFIG_HOME/shell/env.sh
