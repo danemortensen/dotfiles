@@ -31,7 +31,9 @@ unsetopt BEEP   # Turn off the bell!
 
 PROMPT="%F{green}%n@%m%f %B%F{blue}%~%f%b %# "
 
-if (( $+commands[fastfetch] )); then
-  fastfetch                           # Run fastfetch if it's installed
+if (( $+commands[fastfetch] )); then    # First, try to run fastfetch
+  fastfetch
+elif (( $+commands[neofetch] )); then   # If that doesn't work, try neofetch
+  neofetch
 fi
 
