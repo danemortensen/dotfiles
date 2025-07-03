@@ -31,5 +31,7 @@ unsetopt BEEP   # Turn off the bell!
 
 PROMPT="%F{green}%n@%m%f %B%F{blue}%~%f%b %# "
 
-fastfetch
+if (( $+commands[fastfetch] )); then
+  fastfetch                           # Run fastfetch if it's installed
+fi
 
