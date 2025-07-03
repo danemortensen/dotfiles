@@ -25,6 +25,8 @@ setopt hist_ignore_dups     # Don't record duplicate lines
 setopt inc_append_history   # Write to history file immediately
 setopt share_history        # Share history across all shells
 
+unsetopt BEEP   # Turn off the bell!
+
 [[ -f $XDG_CONFIG_HOME/shell/aliases.sh ]] && . $XDG_CONFIG_HOME/shell/aliases.sh
 
 PROMPT="%F{green}%n@%m%f %B%F{blue}%~%f%b %# "
