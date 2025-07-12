@@ -127,21 +127,11 @@ stow_dotfiles() {
   done
 }
 
-# OPTIONAL: add any extra setup here
-post_setup() {
-  log "Running any post-setup steps..."
-  # Examples:
-  # source ~/.zshrc
-  # install custom fonts
-  # setup local bin tools
-}
-
 main() {
   install_dependencies
   clone_dotfiles_repo
   initialize_directories
   stow_dotfiles
-  post_setup
   log "Dotfiles bootstrapped successfully!"
 }
 
