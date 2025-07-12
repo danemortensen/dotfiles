@@ -24,7 +24,7 @@
 #   chmod +x bootstrap.sh
 #   ./bootstrap.sh
 #
-# Or, to run directly from GitHub (optional, if you host this file):
+# Or, to run directly from GitHub:
 #   bash <(curl -sL https://raw.githubusercontent.com/danemortensen/dotfiles/main/bootstrap.sh)
 #
 # -----------------------------------------------------------------------------
@@ -44,13 +44,25 @@ REPO_URL="https://github.com/danemortensen/dotfiles.git"
 DOTFILES_DIR="$HOME/.dotfiles"
 DEPENDENCIES=(git stow vim)
 
-# COLORS FOR MESSAGES
-GREEN='\033[0;32m'
-NC='\033[0m' # No Color
+# --- ANSI Color Codes ---
+# Define color codes for output
+readonly COLOR_RESET='\033[0m'
+readonly COLOR_GREEN='\033[0;32m'   # Green for info
+readonly COLOR_RED='\033[0;31m'     # Red for errors
 
-# FUNCTIONS
+# Logs an informational message in green.
+# Arguments:
+#   $1 - Message to log.
 log() {
-  echo -e "${GREEN}==> $1${NC}"
+  printf "${COLOR_GREEN}[INFO] %s${COLOR_RESET}\n" "$1"
+}
+
+# Logs an error message in red to stderr and exits the script.
+# Arguments:
+#   $1 - Message to log to stderr before exiting.
+die() {
+  printf "${COLOR_RED}[ERROR] %s${COLOR_RESET}\n" "$1" >&2
+  exit 1
 }
 
 install_dependencies() {
@@ -61,8 +73,7 @@ install_dependencies() {
   elif command -v pacman &>/dev/null; then
     sudo pacman -Sy --noconfirm "${DEPENDENCIES[@]}"
   else
-    echo "Package manager not supported. Install git and stow manually." >&2
-    exit 1
+    die "Package manager not supported. Install git and stow manually."
   fi
 }
 
@@ -73,6 +84,39 @@ clone_dotfiles_repo() {
     log "Cloning dotfiles into $DOTFILES_DIR..."
     git clone "$REPO_URL" "$DOTFILES_DIR"
   fi
+}
+
+# Function to ensure a directory exists, creating it if necessary.
+# Arguments:
+#   $1 - The path to the directory to check/create.
+# Returns:
+#   0 on success (directory exists or was created).
+#   Exits the script with an error code (1) if directory creation fails.
+ensure_directory_exists() {
+  local dir_path="$1"
+
+  # Check if the directory already exists
+  if [ -d "$dir_path" ]; then
+    log "Directory '$dir_path' already exists. Skipping creation."
+    return 0
+  fi
+
+  # If it doesn't exist, try to create it
+  if ! mkdir -p "$dir_path"; then
+    die "Error: Failed to create directory '$dir_path'."
+  fi
+
+  log "Created directory '$dir_path'."
+  return 0
+}
+
+initialize_directories() {
+  log "Initializing XDG base directories..."
+  ensure_directory_exists "$HOME/.config"       # XDG_CONFIG_HOME
+  ensure_directory_exists "$HOME/.cache"        # XDG_CACHE_HOME
+  ensure_directory_exists "$HOME/.local/share"  # XDG_DATA_HOME
+  ensure_directory_exists "$HOME/.local/state"  # XDG_STATE_HOME
+  return 0
 }
 
 stow_dotfiles() {
@@ -95,6 +139,7 @@ post_setup() {
 main() {
   install_dependencies
   clone_dotfiles_repo
+  initialize_directories
   stow_dotfiles
   post_setup
   log "Dotfiles bootstrapped successfully!"
