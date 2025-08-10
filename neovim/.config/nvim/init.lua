@@ -10,9 +10,12 @@ local indent = 2
 
 local opt = {
   syntax = "enable",
-  number = true,
   clipboard = "unnamedplus",
   wrap = false,
+
+  -- line numbers
+  number = true,
+  relativenumber = true,
 
   -- indentation
   autoindent = true,
