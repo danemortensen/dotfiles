@@ -35,6 +35,8 @@ local opt = {
   swapfile = false,
   writebackup = false,
 }
-for k, v in pairs(opt) do vim.opt[k] = v end
+for k, v in pairs(opt) do
+  vim.opt[k] = v
+end
 
-lazy.setup()  -- Set `mapleader` and `maplocalleader` before this point.
+lazy.setup() -- Set `mapleader` and `maplocalleader` before this point.
