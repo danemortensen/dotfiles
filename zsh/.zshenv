@@ -48,3 +48,6 @@ export SAVEHIST=10000                         # Save 10K lines across sessions.
 # Set common environment variables.
 [[ -f $XDG_CONFIG_HOME/shell/env.sh ]] && . $XDG_CONFIG_HOME/shell/env.sh
 
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
+
