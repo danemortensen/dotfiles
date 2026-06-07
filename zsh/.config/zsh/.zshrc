@@ -38,9 +38,11 @@ elif (( $+commands[neofetch] )); then   # If that doesn't work, try neofetch
 fi
 
 # Plugins
-export ANTIDOTE_HOME="$XDG_DATA_HOME/antidote"
-source ~/.local/opt/antidote/antidote.zsh
-zstyle ':antidote:bundle' file "$ZDOTDIR/plugins.txt"
-zstyle ':antidote:static' file "$XDG_STATE_HOME/zsh/plugins.zsh"
-antidote load
+if [[ -r ~/.local/opt/antidote/antidote.zsh ]]; then
+  export ANTIDOTE_HOME="$XDG_DATA_HOME/antidote"
+  source ~/.local/opt/antidote/antidote.zsh
+  zstyle ':antidote:bundle' file "$ZDOTDIR/plugins.txt"
+  zstyle ':antidote:static' file "$XDG_STATE_HOME/zsh/plugins.zsh"
+  antidote load
+fi
 
