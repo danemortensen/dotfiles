@@ -27,7 +27,24 @@ setopt share_history        # Share history across all shells
 
 unsetopt BEEP   # Turn off the bell!
 
-[[ -f $XDG_CONFIG_HOME/shell/aliases.sh ]] && . $XDG_CONFIG_HOME/shell/aliases.sh
+
+
+# ==============================================================================
+# Aliases
+# ==============================================================================
+
+alias la="ls -A"
+alias ll="ls -lAhF"
+
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -ri"
+
+alias mkdir="mkdir -pv"
+
+alias v="nvim"
+
+alias sudo="sudo "
 
 PROMPT="%F{green}%n@%m%f %B%F{blue}%~%f%b %# "
 
