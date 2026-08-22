@@ -30,6 +30,53 @@ unsetopt BEEP   # Turn off the bell!
 
 
 # ==============================================================================
+# Vi Motions
+# ==============================================================================
+
+bindkey -v
+
+export KEYTIMEOUT=1 # Reduce delay when switching modes via ESC.
+
+# Allow backspace to delete past the point where insert mode started.
+bindkey -M viins '^?' backward-delete-char
+bindkey -M viins '^H' backward-delete-char
+
+_set_cursor_to_block() {
+  echo -ne '\e[2q'                  # Standard block
+  echo -ne '\e]50;CursorShape=0\x7' # Konsole block
+}
+
+_set_cursor_to_beam() {
+  echo -ne '\e[5q'                  # Standard beam
+  echo -ne '\e]50;CursorShape=1\x7' # Konsole beam
+}
+
+# Change cursor shape based on vi modes.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]]; then
+    _set_cursor_to_block
+  else
+    _set_cursor_to_beam
+  fi
+}
+zle -N zle-keymap-select
+
+# Ensure the cursor resets to insert mode when a new prompt is loaded.
+function zle-line-init {
+  zle -K viins
+  _set_cursor_to_beam
+}
+zle -N zle-line-init
+
+# Reset cursor shape to beam when executing a command so it doesn't get stuck.
+function zle-line-finish {
+  _set_cursor_to_beam
+}
+zle -N zle-line-finish
+
+
+
+# ==============================================================================
 # Aliases
 # ==============================================================================
 
