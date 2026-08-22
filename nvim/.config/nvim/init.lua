@@ -7,6 +7,12 @@ vim.opt.scrolloff = 8
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+-- Search Behavior
+vim.opt.hlsearch = true      -- Highlight all search matches
+vim.opt.ignorecase = true    -- Ignore letter casing in searches
+vim.opt.smartcase = true     -- Override ignorecase if pattern contains uppercase
+vim.opt.inccommand = "split" -- Preview the effect of commands they are typed
+
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Exit insert mode" })
 
 -- Clears the cache and reloads the neovim config.
