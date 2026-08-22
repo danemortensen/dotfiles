@@ -13,6 +13,13 @@ vim.opt.ignorecase = true    -- Ignore letter casing in searches
 vim.opt.smartcase = true     -- Override ignorecase if pattern contains uppercase
 vim.opt.inccommand = "split" -- Preview the effect of commands they are typed
 
+-- Clipboard, Backups, and System Footprints
+vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
+vim.opt.backup = false            -- Disable automatic backup file creation
+vim.opt.swapfile = false          -- Disable swap file creation
+vim.opt.writebackup = false       -- Disable backups during file overwrites
+vim.opt.undofile = true           -- Persist undo history to a file
+
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Exit insert mode" })
 
 -- Clears the cache and reloads the neovim config.
